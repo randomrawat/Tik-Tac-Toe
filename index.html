@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Tik Tac Toe.png" />
+    <title>Tik Tac Toe</title>
+    <style>
+        body{
+            background-image: linear-gradient(135deg, #fcf8fc 0%, rgba(126, 126, 222, 0.515) 100%);
+
+        }
+        #header{
+            text-align: center;
+            font-size: 3rem;
+            color: rgba(80, 76, 76, 0.788);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+
+        }
+        .container{
+            background-color: rgba(126, 126, 222, 0.412);
+            height: 450px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,1fr);
+            width:450px;
+            margin:0 auto;
+            border-radius: 5%;
+            padding:5px;
+        }
+    
+        .box{  
+            color:aliceblue;
+            font-size: 4rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:.3rem;
+            border-radius: 10%;
+            background-color: rgba(126, 126, 222, 0.515);
+        }
+        .box:hover{
+        transform:scale(1.03);
+        box-shadow: 0 4px 8px rbga(0,0,0,0,2);
+        background-color: rgba(126, 126, 222, 0.650);
+    }
+    #newgame{
+        
+        background-color: rgba(126, 126, 222, 0.412);
+        width: 200px;
+        font-weight: 400;
+        font-size: x-large;
+        background-color: azure;
+        border-radius: 30px;
+        padding: 8px;
+        margin-top: 40px;
+        background-image: linear-gradient(135deg, #fcf8fc 0%, rgba(126, 126, 222, 0.515) 100%);
+        border: 2px solid  rgba(126, 126, 222, 0.515);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 3rem;
+
+}
+    </style>
+</head>
+<body>
+<h1 id="header">Tik Tac Toe</h1>
+
+<div class="container">
+    <div onclick="box(1)" id="box1" class="box"></div>
+    <div onclick="box(2)" id="box2" class="box"></div>
+    <div onclick="box(3)" id="box3" class="box"></div>
+    <div onclick="box(4)" id="box4" class="box"></div>
+    <div onclick="box(5)" id="box5" class="box"></div>
+    <div onclick="box(6)" id="box6" class="box"></div>
+    <div onclick="box(7)" id="box7" class="box"></div>
+    <div onclick="box(8)" id="box8" class="box"></div>
+    <div onclick="box(9)" id="box9" class="box"></div>
+
+</div>
+
+<button onclick="newG()" id="newgame">
+    New Game
+</button>
+
+<script>
+let player = 1
+
+function newG(){
+    for(let i=1; i<=9; i++){
+    document.getElementById(`box${i}`).textContent = ''
+    document.getElementById('header').textContent = 'Tik Tac Toe'
+    }
+}
+
+
+function box(id){
+    if(player === 1) document.getElementById(`box${id}`).textContent = 0
+    else document.getElementById(`box${id}`).textContent = 'X'
+    player = player === 1 ? 2 : 1;
+    check()
+}
+function check(){
+    if(document.getElementById('box1').textContent === '0' && 
+       document.getElementById('box2').textContent === '0' &&
+       document.getElementById('box3').textContent === '0'){
+         document.getElementById('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box4').textContent === '0' && 
+       document.getElementById('box5').textContent === '0' &&
+       document.getElementById('box6').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+    }
+       if(document.getElementById('box7').textContent === '0' && 
+       document.getElementById('box8').textContent === '0' &&
+       document.getElementById('box9').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box1').textContent === '0' && 
+       document.getElementById('box5').textContent === '0' &&
+       document.getElementById('box9').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box3').textContent === '0' && 
+       document.getElementById('box5').textContent === '0' &&
+       document.getElementById('box7').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box1').textContent === '0' && 
+       document.getElementById('box4').textContent === '0' &&
+       document.getElementById('box7').textContent === '0'){
+        document.getElementByid('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box2').textContent === '0' && 
+       document.getElementById('box6').textContent === '0' &&
+       document.getElementById('box8').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+       }
+       if(document.getElementById('box3').textContent === '0' && 
+       document.getElementById('box6').textContent === '0' &&
+       document.getElementById('box9').textContent === '0'){
+        document.getElementById('header').textContent = 'P1 Wins!'
+       }
+                       // X
+                2
+       if(document.getElementById('box1').textContent === 'X' && 
+       document.getElementById('box2').textContent === 'X' &&
+       document.getElementById('box3').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box4').textContent === 'X' && 
+       document.getElementById('box5').textContent === 'X' &&
+       document.getElementById('box6').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box7').textContent === 'X' && 
+       document.getElementById('box8').textContent === 'X' &&
+       document.getElementById('box9').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box1').textContent === 'X' && 
+       document.getElementById('box5').textContent === 'X' &&
+       document.getElementById('box9').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box3').textContent === 'X' && 
+       document.getElementById('box5').textContent === 'X' &&
+       document.getElementById('box7').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box1').textContent === 'X' && 
+       document.getElementById('box4').textContent === 'X' &&
+       document.getElementById('box7').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box2').textContent === 'X' && 
+       document.getElementById('box6').textContent === 'X' &&
+       document.getElementById('box8').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+       if(document.getElementById('box3').textContent === 'X' && 
+       document.getElementById('box6').textContent === 'X' &&
+       document.getElementById('box9').textContent === 'X'){
+        document.getElementById('header').textContent = 'P2 Wins!'
+       }
+
+
+
+
+}
+
+</script>
+
+  
+</body>
+</html>
+
